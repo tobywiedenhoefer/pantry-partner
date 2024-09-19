@@ -1,4 +1,6 @@
-import { View, YStack, useTheme, H1, Button } from "tamagui";
+import { View, YStack, useTheme, H1, H3, H2 } from "tamagui";
+
+import Button from "../components/Button";
 
 export default function LandingPage() {
   const theme = useTheme({ name: "purple_active" });
@@ -7,41 +9,21 @@ export default function LandingPage() {
       <View alignItems="center" marginHorizontal={"$3"}>
         <YStack marginTop={"$13"} maxWidth={"750px"} width={"100%"}>
           <H1
-            color={theme.accentColor.val}
+            color={"$red12"}
             fontSize={"$12"}
             fontStyle="italic"
             lineHeight={"$12"}
-            marginBottom="$5"
+            marginBottom="$1"
           >
-            Howdy, Partner. Welcome to Pantry Partner!
+            Howdy, Partner!
           </H1>
-          <Button
-            marginBottom="$5"
-            size={"$6"}
-            fontFamily={"$mono"}
-            backgroundColor={theme.accentColor}
-            color={theme.background}
-            pressStyle={{
-              bg: theme.white1,
-              borderColor: theme.white1,
-              col: theme.red5Dark.val,
-            }}
-          >
+          <H3 marginBottom="$5" color={"$red12"} size={"$8"}>
+            Welcome to your pantry's new partner.
+          </H3>
+          <Button variant="primary" marginBottom="$5">
             Get Started
           </Button>
-          <Button
-            backgroundColor={theme.yellow2}
-            marginBottom="$5"
-            fontSize={"$6"}
-            size={"$6"}
-            color={theme.red5Dark}
-            fontFamily="$mono"
-            pressStyle={{
-              bg: theme.white1,
-              borderColor: theme.white1,
-              col: theme.red5Dark.val,
-            }}
-          >
+          <Button variant="secondary" marginBottom="$5">
             Login
           </Button>
         </YStack>
