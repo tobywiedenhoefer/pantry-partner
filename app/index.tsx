@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
-import { View, YStack, useTheme, H1, H3, H2 } from "tamagui";
+import { router } from "expo-router";
+import { View, YStack, H1, H3 } from "tamagui";
 
 import Button from "../components/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default () => {
   const [loaded] = useFonts({
@@ -12,28 +14,38 @@ export default () => {
   useEffect(() => {}, [loaded]);
   return loaded ? (
     <View flex={1} backgroundColor={"$purple5Light"}>
-      <View alignItems="center" marginHorizontal={"$3"}>
-        <YStack marginTop={"$13"} maxWidth={"750px"} width={"100%"}>
-          <H1
-            color={"$red12"}
-            fontSize={"$12"}
-            fontStyle="italic"
-            lineHeight={"$12"}
-            marginBottom="$1"
-          >
-            Howdy, Partner!
-          </H1>
-          <H3 marginBottom="$5" color={"$red12"} size={"$8"}>
-            Welcome to your pantry's new partner.
-          </H3>
-          <Button variant="primary" marginBottom="$5">
-            Get Started
-          </Button>
-          <Button variant="secondary" marginBottom="$5">
-            Login
-          </Button>
-        </YStack>
-      </View>
+      <SafeAreaView>
+        <View alignItems="center" margin={"$3"} height={"100%"}>
+          <YStack maxWidth={"750px"} width={"100%"}>
+            <H1
+              color={"$red12"}
+              fontSize={"$12"}
+              fontStyle="italic"
+              lineHeight={"$12"}
+              marginBottom="$1"
+            >
+              Howdy, Partner!
+            </H1>
+            <H3 marginBottom="$5" color={"$red12"} size={"$8"}>
+              Welcome to your pantry's new partner.
+            </H3>
+          </YStack>
+          <YStack flex={1} flexDirection="column-reverse">
+            <YStack minWidth="100%">
+              <Button variant="primary" marginBottom="$5">
+                Get Started
+              </Button>
+              <Button
+                variant="secondary"
+                marginBottom="$8"
+                onPress={() => router.navigate("/login")}
+              >
+                Login
+              </Button>
+            </YStack>
+          </YStack>
+        </View>
+      </SafeAreaView>
     </View>
   ) : null;
 };
