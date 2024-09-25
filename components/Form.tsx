@@ -1,5 +1,5 @@
 import React from "react";
-import { Form as TForm, View, XStack } from "tamagui";
+import { Form as TForm, View, XStack, YStack } from "tamagui";
 import Button from "./Button";
 
 type FormProps = {
@@ -19,7 +19,9 @@ export default function Form(props: FormProps) {
       shadowOpacity={0.4}
       shadowRadius={"$6"}
     >
-      <View marginVertical={"$4"}>{props.children}</View>
+      <YStack marginVertical={"$4"} gap={"$2"}>
+        {props.children}
+      </YStack>
       <XStack display="flex">
         <View width={"40%"}>
           <Button
