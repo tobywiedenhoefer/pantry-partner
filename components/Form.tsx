@@ -18,15 +18,16 @@ export default function Form(props: FormProps) {
       shadowOffset={"$0.5"}
       shadowOpacity={0.4}
       shadowRadius={"$6"}
+      onSubmit={props.primaryButton.action}
     >
-      <YStack marginVertical={"$4"} gap={"$2"}>
+      <YStack marginVertical={"$4"} gap={"$4"}>
         {props.children}
       </YStack>
       <XStack display="flex">
         <View width={"40%"}>
           <Button
             variant="secondary"
-            onPress={() => props.secondaryButton.action()}
+            onPress={props.secondaryButton.action}
             marginRight={"$2"}
             padding={0}
           >
