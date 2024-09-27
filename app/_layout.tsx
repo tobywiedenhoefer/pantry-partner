@@ -24,7 +24,7 @@ const StackLayout = () => {
     if (!authState?.authenticated && inAuthGroup) {
       router.replace("/");
     } else if (authState?.authenticated) {
-      router.replace("/(auth)");
+      router.replace("(auth)");
     }
   }, [authState]);
   return (
