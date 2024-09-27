@@ -11,11 +11,7 @@ export default () => {
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
     InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
   });
-  useEffect(() => {
-    if (router.canDismiss()) {
-      router.dismissAll();
-    }
-  }, []);
+
   useEffect(() => {}, [loaded]);
   return loaded ? (
     <View flex={1} backgroundColor={"$purple5Light"}>

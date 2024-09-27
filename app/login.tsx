@@ -1,4 +1,4 @@
-import { router } from "expo-router";
+import { useRouter } from "expo-router";
 import { H1, View, YStack } from "tamagui";
 
 import Background from "../components/Background";
@@ -8,6 +8,7 @@ import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
   const { onLogin } = useAuth();
+  const router = useRouter();
   return (
     <Background variant="primary">
       <View
@@ -25,7 +26,10 @@ export default function Login() {
             }}
             primaryButton={{
               verbiage: "Submit",
-              action: () => onLogin!("username", "string"),
+              action: () => {
+                onLogin!("username", "string");
+                router.replace("(auth)");
+              },
             }}
           >
             <H1>Login</H1>
