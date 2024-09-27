@@ -5,7 +5,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 
-import { Stack, useRouter, useSegments } from "expo-router";
+import { Slot, Stack, useRouter, useSegments } from "expo-router";
 
 import { useColorScheme } from "react-native";
 
@@ -40,7 +40,7 @@ export default function RootLayout() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
       <AuthProvider>
-        <StackLayout />
+        <Slot />
       </AuthProvider>
     </TamaguiProvider>
   );
